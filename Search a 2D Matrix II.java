@@ -8,6 +8,7 @@ Integers in each row are sorted in ascending from left to right.
 Integers in each column are sorted in ascending from top to bottom.
 =========================================================================*/
 // 从右上往左下查找
+// o(row+col)
 public class Solution {
     public boolean searchMatrix(int[][] matrix, int target) {
         if(matrix==null || matrix.length==0){

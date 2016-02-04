@@ -1,4 +1,4 @@
-//Maximum Product Subarray 
+//Maximum Product Subarray
 public class Solution {
     public static int maxProduct(int[] nums) {
 	        int maxEndingHere = 1, minEndingHere = 1, maxSoFar = nums[0];

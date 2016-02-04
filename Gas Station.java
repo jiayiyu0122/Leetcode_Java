@@ -45,3 +45,34 @@ public class Solution {
         return -1;
     }
 }
+
+
+// 超时, 只要加一句 startindex = index;
+public class Solution {
+    public int canCompleteCircuit(int[] gas, int[] cost) {
+        if(gas.length==0) return -1;
+        int len = gas.length;
+        for(int startIndex=0; startIndex<gas.length; startIndex++){
+            int[] amountOfGas = new int[gas.length];
+            int i = 0;
+            for(; i<gas.length; i++){
+                int index = startIndex+i;
+                if(amountOfGas[(index)%len]+gas[index%len]>=cost[index%len]){
+                    amountOfGas[(index+1)%len] = amountOfGas[(index)%len]+gas[index%len]-cost[index%len];
+                }
+                else{
+                    // 从某一个start 到不了某一个gas station，那么这中间的gas station也没有办法到达， 所以start指针要设置为current后面那个。
+                   
+                    startIndex = index;
+                    break;
+                }
+            }
+            if(i==gas.length){
+                return startIndex;
+            }
+        }
+        return -1;
+        
+        
+    }
+}
